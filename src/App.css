@@ -1,38 +1,178 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root{
+  --light-white: #F5F7FB;
+  --dark-white: #DBDEF0;
+  --lighter-violet: #D6DBF5;
+  --light-violet: #4D5B9E;
+  --main-violet: #293264;
+  --bg-color: #1C1C1C;
+  
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--main-violet);
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Inter', sans-serif;
+}
+
+h3 {
+  font-family: 'Karla', sans-serif;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+button {
+  cursor: pointer;
+}
+
+.quizzical-container{
+  background-color: var(--light-white);
+  width: 80vw;
+  height: 100vh;
+  border-radius: 8px;
+  margin: 35px auto;
+  position: relative;
+}
+
+.white-blob, 
+.blue-blob {
+  width: 120px;
+  position: absolute;
+}
+
+.white-blob {
+  border-radius: 0 8px 0 0;
+  right: 0;
+  top: 0;
+}
+
+.blue-blob{
+  border-radius: 0 0 0 8px;
+  left: 0;
+  bottom: 0;
+}
+
+/* Intro */
+.intro-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.intro-page p{
+  margin: 25px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.intro-page button,
+.check-answers-btn button,
+.results button {
+  border: none;
+  color: var(--light-white);
+  background-color: var(--light-violet);
+  border-radius: 15px;
+  transition: 0.1s all;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.intro-page button:hover,
+.check-answers-btn button:hover,
+.results button:hover {
+  opacity: 0.9;
+}
+
+.intro-page button{
+  width: 193px;
+  height: 52px;
+  font-size: 16px;
+  font-family: 'Inter';
+}
+
+
+/* Questions */
+.questions-container{
+  padding: 5px 100px;
+}
+
+.question-wrapper{
+  max-width: 830px;
+  line-height: 1.2;
+  margin: 12px 40px;
+}
+
+.question-wrapper h3{
+  color: var(--main-violet);
+  font-size: 18px;
+}
+
+.question-wrapper .answer-btns{
   display: flex;
-  flex-direction: column;
   align-items: center;
+}
+
+.question-wrapper button{
+  margin: 10px 40px 10px 0; 
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px;
+  background: none;
+  border: 1px solid #4D5B9E;
+}
+
+.question-wrapper .line{
+  width: 830px;
+  height: 1px;
+  background-color: var(--dark-white);
+}
+
+.check-answers-btn{
+  text-align: center;
+  margin-top: 15px;
+}
+
+.check-answers-btn button,
+.results button {
+  width: 120px;
+  height: 35px;
+  background-color: #4D5B9E;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 12px;
+  color: #F5F7FB;
+  transition: 0.5 all;
+}
+
+.results{
+  margin-top: 25px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.results p{
+  margin-right: 20px;
+  font-weight: 700;
+  font-size: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loader{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
