@@ -1,6 +1,9 @@
 import React from 'react';
 
-export default function Questions({ question, answers, correctAnswer, handleSelect, checkingAnswers }) {
+export default function Questions({ 
+    question, answers, correctAnswer,
+    handleSelect, checkingAnswers 
+}) {
     return (
         <div className='question-wrapper'>
             <h3>{question}</h3>

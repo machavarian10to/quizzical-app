@@ -30,23 +30,42 @@ function App() {
       .then(data => { 
         let options = [];
         data.results.map(res => {
-          const question = res.question;
-          const correctAnswer = res.correct_answer.replaceAll("&quot;" , '"').replaceAll("&#039;", "'").replaceAll("&amp;", "&");
-          let answers = [{answer: correctAnswer, selected: false, answerId: nanoid()}];
+          const question = removeSymbols(res.question);
+          const correctAnswer = removeSymbols(res.correct_answer)
+          let answers = [{ 
+            answer: correctAnswer,
+            selected: false,
+            answerId: nanoid()
+          }];
           res.incorrect_answers.forEach(incorrectAnswer => {
-            answers.push({answer: incorrectAnswer.replaceAll("&quot;" , '"').replaceAll("&#039;", "'").replaceAll("&amp;", "&").replaceAll("&Prime;", "″"), selected: false, answerId: nanoid()});
+            answers.push({ 
+              answer: removeSymbols(incorrectAnswer),
+              selected: false,
+              answerId: nanoid()
+            });
           });
-          shuffleArray(answers)
-          options.push({question: question, correctAnswer: correctAnswer, answers: answers})
+          shuffleArray(answers);
+          return options.push({
+            question: question,
+            correctAnswer: correctAnswer,
+            answers: answers
+          })
         })
         setOptions(options);
         setIsLoading(false);
 
         // Life hack :)
-        console.log('Correct answers: ' + options.map((option, i) => (i + 1 + ')') + option.correctAnswer));
+        console.log('Correct answers: ' + options.map((option, index) => {
+          return (index + 1 + ')') + option.correctAnswer 
+        }));
       })
     }
   }, [quizStarted])
+
+  function removeSymbols(text) {
+    return text.replaceAll("&quot;" , '"').replaceAll("&#039;", "'")
+    .replaceAll("&amp;", "&").replaceAll("&Prime;", "″")
+  }
 
   function startQuiz() {
     setIsLoading(true);
@@ -57,7 +76,7 @@ function App() {
     return (
       <Question
         key={nanoid()}
-        question={option.question.replaceAll("&quot;" , '"').replaceAll("&#039;", "'").replaceAll("&amp;", "&")}
+        question={option.question}
         answers={option.answers}
         correctAnswer={option.correctAnswer}
         handleSelect={e => handleSelect(option.answers, e)}
@@ -90,6 +109,7 @@ function App() {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
+    return;
   }
 
   function checkAnswers() {
@@ -117,7 +137,7 @@ function App() {
       {!quizStarted
        ? <Intro startQuiz={startQuiz} /> 
        : <div className='questions-container'>
-            {isLoading 
+            { isLoading 
             ? <div className='loader'>
                 <ReactLoading 
                   type='spinningBubbles'
@@ -129,7 +149,7 @@ function App() {
             : questionElems
             }
 
-            {!checkingAnswers 
+            { !checkingAnswers 
               ? <div className='check-answers-btn'>
                   {!isLoading && <button onClick={() => checkAnswers()}>Check answers</button>}
                 </div> 

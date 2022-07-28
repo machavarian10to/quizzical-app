@@ -133,7 +133,7 @@ button {
 }
 
 .question-wrapper .line{
-  width: 830px;
+  max-width: 830px;
   height: 1px;
   background-color: var(--dark-white);
 }
@@ -176,3 +176,169 @@ button {
   top: 50%;
   transform: translate(-50%,-50%);
 }
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .intro-page h3{
+    font-size: 30px;
+  }
+
+  .intro-page p{
+    font-size: 13px;
+  }
+
+  .intro-page button {
+    width: 150px;
+    height: 45px;
+    font-size: 14px;
+  
+  }
+  .white-blob, 
+  .blue-blob {
+    width: 70px;
+  }
+
+  .questions-container {
+    padding: 8px;
+  }
+
+  .question-wrapper button {
+    margin: 5px;
+  }
+  
+  .question-wrapper h3{
+    font-size: 12px;
+  }
+  
+  .question-wrapper .answer-btns button{
+    font-size: 8px;
+  } 
+
+  .question-wrapper .answer-btns button{
+    padding: 0;
+    width: 70px;
+    height: 20px;
+  } 
+
+  .question-wrapper .answer-btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .results {
+    flex-direction: column;
+  }
+
+  .results p {
+    margin-bottom: 10px;
+    font-size: 10px;
+  }
+
+  .check-answers-btn button {
+    width: 90px;
+    height: 30px;
+    font-size: 8px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .intro-page h3{
+    font-size: 34px;
+  }
+
+  .intro-page p{
+    font-size: 15px;
+  }
+
+  .intro-page button {
+    width: 170px;
+    height: 50px;
+    font-size: 15px;
+  
+  }
+  .white-blob, 
+  .blue-blob {
+    width: 100px;
+  }
+
+  .questions-container {
+    padding: 10px;
+  }
+  
+  .question-wrapper h3{
+    font-size: 13px;
+  }
+  
+  .question-wrapper .answer-btns button{
+    font-size: 8px;
+  }
+
+  .results p {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .intro-page h3{
+    font-size: 35px;
+  }
+
+  .intro-page button {
+    width: 180px;
+    height: 55px;
+    font-size: 15px;
+  
+  }
+  .white-blob, 
+  .blue-blob {
+    width: 110px;
+  }
+
+  .questions-container {
+    padding: 30px 10px;
+  }
+  
+  .question-wrapper h3{
+    font-size: 13px;
+  }
+  
+  .question-wrapper .answer-btns button{
+    font-size: 10px;
+  }
+
+  .results p {
+    font-size: 14px;
+  }
+}
+
+
+@media only screen and (min-width: 992px) {
+  .questions-container {
+    padding: 10px;
+  }
+  
+  .question-wrapper h3{
+    font-size: 16px;
+  }
+  
+  .question-wrapper .answer-btns button{
+    font-size: 12px;
+  }
+
+  .results p {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .question-wrapper h3{
+    font-size: 18px;
+  }
+
+  .results p {
+    font-size: 18px;
+  }
+}
+
