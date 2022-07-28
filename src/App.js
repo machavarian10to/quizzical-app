@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
+import React, { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
 import Intro from './components/Intro';
 import Question from './components/Question'

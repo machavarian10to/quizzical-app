@@ -1,5 +1,4 @@
 import React from 'react';
-import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
 
 export default function Questions({ question, answers, correctAnswer, handleSelect, checkingAnswers }) {
     return (
@@ -9,7 +8,7 @@ export default function Questions({ question, answers, correctAnswer, handleSele
                 {answers.map(option => {
                     return(
                         <button 
-                            key={nanoid()}
+                            key={option.answerId}
                             onClick = {handleSelect} 
                             disabled={checkingAnswers ? true : false}
                             style = { 
